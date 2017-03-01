@@ -1,4 +1,4 @@
-#guuTASA 
+#guuTASA -2017-03-01
 
 
 
@@ -34,3 +34,38 @@ void Initlist(linklist &p,int n)
 	}
 }
 
+
+void outlist(linklist &p,int n,int m)
+{
+	linklist q = p,r;
+	int i,j,a=m;
+	for(i=1;i<n;i++)
+	{
+		q = q->next;
+	}
+	for(i=0;i<n;i++)
+	{
+		for(j=1;j<a;j++)
+		{
+			p = p->next;
+			q = q->next;
+		}
+		a = p->mm;
+		printf("%d ",p->bh);
+		r = p;
+		q->next = p->next;
+		p = p->next;
+		free(r);
+	}
+}
+
+int main()
+{
+	linklist p;
+	int n,m;
+	printf("请输入一个密码和人数：");
+	scanf("%d %d",&m,&n);
+	Initlist(p,n);
+	outlist(p,n,m);
+	return 0;
+}
